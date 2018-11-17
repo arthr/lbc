@@ -25,7 +25,6 @@ class AuthController extends Controller
      */
     public function signup(Request $request)
     {
-        dd($request);
         $this->createAccount($request, true);
         return response()->json([
             'message' => 'Seu cadastro foi realizado com sucesso! Um email de confirmação foi enviado a você.'
