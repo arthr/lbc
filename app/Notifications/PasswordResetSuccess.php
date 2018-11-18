@@ -43,6 +43,7 @@ class PasswordResetSuccess extends Notification
         return (new MailMessage)
             ->from('lineagebrasilclub@gmail.com', 'Lineage Brasil Club')
             ->subject('Recuperar Senha')
+            ->greeting('')
             ->line('Sua senha foi alterada com sucesso!')
             ->line('Se você realmente alterou sua senha, desconsidere este email.')
             ->line('Se você não alterou sua senha, proteja sua conta!');

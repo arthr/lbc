@@ -13,7 +13,7 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens, SoftDeletes;
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at', 'email_verified_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -36,6 +36,6 @@ class User extends Authenticatable
 
     public function gameAccount()
     {
-        return $this->hasOne(GameAccount::class);
+        return $this->hasMany(GameAccount::class);
     }
 }

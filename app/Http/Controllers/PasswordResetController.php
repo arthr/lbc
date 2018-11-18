@@ -90,7 +90,7 @@ class PasswordResetController extends Controller
     {
         $request->validate([
             'email' => 'required|string|email',
-            'password' => 'required|string|confirmed',
+            'password' => 'required|string|min:4|max:14|confirmed|regex:/^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d[:graph:]]*)$/i',
             'token' => 'required|string'
         ]);
 
@@ -108,13 +108,18 @@ class PasswordResetController extends Controller
 
         if (!$user)
             return response()->json([
-            'message' => 'We can\' t find a user with that e - mail address .'
+            'message' => 'Não encontramos nenhum usuário associado a esse email.'
         ], 404);
 
         $user->password = bcrypt($request->password);
         $user->save();
+
         $passwordReset->delete();
+        
+        $request->user()->token()->revoke();
+
         $user->notify(new PasswordResetSuccess($passwordReset));
+
         return response()->json($user);
     }
 }
