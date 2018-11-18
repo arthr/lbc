@@ -1,4 +1,5 @@
 /node_modules
+**/*/node_modules
 /public/hot
 /public/storage
 /storage/*.key
@@ -13,3 +14,10 @@ npm-debug.log
 yarn-error.log
 .env
 .phpunit.result.cache
+.DS_Store
+.sass-cache
+.publish
+.idea
+/deploy
+**/*/dist
+npm-debug.log
