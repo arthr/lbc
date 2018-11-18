@@ -13,14 +13,27 @@ trait LineageMisc
     private $portG = 7777;
     private $timeout = 0;
 
-    public function gameServer()
+    public function serverStatus()
     {
-        return @fsockopen("lineagebrasilclub.ddns.net", 7777, $errno, $errstr, 30) ? 'online' : 'offline';
+        return [
+            'gameserver' => $this->gameServerStatus(),
+            'loginserver' => $this->loginServerStatus(),
+            'npcserver' => $this->npcServerStatus()
+        ];
     }
 
-    public function loginServer()
+    protected function gameServerStatus()
     {
-        return @fsockopen("lineagebrasilclub.ddns.net", 2106, $errno, $errstr, 30) ? 'online' : 'offline';
+        return 'offline'; //@fsockopen("lineagebrasilclub.ddns.net", 7777, $errno, $errstr, 5) ? 'online' : 'offline';
     }
 
+    protected function loginServerStatus()
+    {
+        return 'offline'; //@fsockopen("lineagebrasilclub.ddns.net", 2106, $errno, $errstr, 5) ? 'online' : 'offline';
+    }
+
+    protected function npcServerStatus()
+    {
+        return 'offline'; //@fsockopen("lineagebrasilclub.ddns.net", 2002, $errno, $errstr, 5) ? 'online' : 'offline';
+    }
 }

@@ -9,8 +9,8 @@ class ServerController extends Controller
 {
     use LineageMisc;
 
-    public function serverStatus(Request $request)
+    public function status(Request $request)
     {
-        return $this->loginServer();
+        return response()->json(($this->serverStatus()));
     }
 }

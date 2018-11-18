@@ -115,8 +115,6 @@ class PasswordResetController extends Controller
         $user->save();
 
         $passwordReset->delete();
-        
-        $request->user()->token()->revoke();
 
         $user->notify(new PasswordResetSuccess($passwordReset));
 

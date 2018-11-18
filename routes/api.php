@@ -9,6 +9,9 @@ Route::group(['prefix' => 'abc', 'middleware' => 'cors'], function () {
     Route::post('signup', 'AuthController@signup');
 });
 
+Route::group(['prefix' => 'server'], function () {
+    Route::get('status', 'ServerController@status');
+});
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
