@@ -1,6 +1,6 @@
 import { $, tween, $wnd } from './_utility';
 
-function postInitNavbar() {
+function postInitLBCNavbar() {
 	const self = this;
 
 	console.log(self.user);
@@ -18,7 +18,7 @@ function postInitNavbar() {
 
 
 
-	
+
 }
 
-export { postInitNavbar };
+export { postInitLBCNavbar };
