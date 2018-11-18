@@ -208,6 +208,12 @@ function initNavbar() {
             $navbarTop[`${scroll > 70 ? 'add' : 'remove'}Class`]('nk-navbar-solid');
         }
     });
+
+		$.get( `${self.options.serverURL}/api/server/status`, function( data ) {
+		  $(".nk-contacts-left #game-status").html(data.gameserver);
+			$(".nk-contacts-left #login-status").html(data.loginserver);
+			$(".nk-contacts-left #npc-status").html(data.npcserver);
+		});
 }
 
 export { initNavbar };

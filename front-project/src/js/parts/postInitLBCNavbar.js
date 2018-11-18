@@ -3,8 +3,6 @@ import { $, tween, $wnd } from './_utility';
 function postInitLBCNavbar() {
 	const self = this;
 
-	console.log(self.user);
-
 	if(self.user){
 		$('.nk-nav.not-logged-in').hide();
 		$('.nk-nav.logged-in').show();
