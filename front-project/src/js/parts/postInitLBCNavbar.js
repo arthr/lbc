@@ -1,9 +1,7 @@
 import { $, tween, $wnd } from './_utility';
 
-function postInitNavbar() {
+function postInitLBCNavbar() {
 	const self = this;
-
-	console.log(self.user);
 
 	if(self.user){
 		$('.nk-nav.not-logged-in').hide();
@@ -18,7 +16,7 @@ function postInitNavbar() {
 
 
 
-	
+
 }
 
-export { postInitNavbar };
+export { postInitLBCNavbar };

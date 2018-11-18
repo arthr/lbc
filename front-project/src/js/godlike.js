@@ -51,8 +51,10 @@ import { initPluginTypedjs } from './parts/initPluginTypedjs';
 import { initPluginSummernote } from './parts/initPluginSummernote';
 
 /* LBC */
+import { initLBCPasswordRecover } from './parts/initLBCPasswordRecover';
 
-import { postInitNavbar } from './parts/postInitNavbar';
+import { postInitLBCMyAccount } from './parts/postInitLBCMyAccount';
+import { postInitLBCNavbar } from './parts/postInitLBCNavbar';
 
 
 /*------------------------------------------------------------------
@@ -92,7 +94,7 @@ class GODLIKE {
         self.initVideoBlocks();
         self.initGIF();
         self.initInfoBoxes();
-        self.initForms();
+
         self.initFormsMailChimp();
         self.initTeamMembers();
         self.initAudioPlayer();
@@ -117,6 +119,12 @@ class GODLIKE {
         self.initPluginTypedjs();
         self.initPluginSummernote();
 
+				//LBC
+				self.initLBCPasswordRecover();
+
+				//Ativa os validadores de form;
+				self.initForms();
+
         self.initPreloader();
 
         self.initParallaxMouse();
@@ -127,11 +135,29 @@ class GODLIKE {
         return self;
     }
 
+		urlParam(name){
+				var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+				if (results==null) {
+					 return null;
+				}
+				return decodeURI(results[1]) || 0;
+		}
+
+		addValidators(){
+			$.validator.addMethod("lettersAndNumbersOnly", function (value, element) {
+				return this.optional(element) || /^([a-zA-Z0-9]*)$/i.test(value);
+			}, "Insira somente n&uacute;meros e letras");
+
+			$.validator.addMethod("validPass", function (value, element) {
+				return this.optional(element) || /^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\S]*)$/i.test(value);
+			}, "Insira uma senha v&aacute;lida");
+		}
+
     postInit(){
 
         const self = this;
-        console.log(self);
-        self.postInitNavbar();
+        self.postInitLBCNavbar();
+				self.postInitLBCMyAccount();
 
         return self;
     }
@@ -152,7 +178,9 @@ class GODLIKE {
             }, function(){
                 onFail();
             })
-        }
+        }else{
+					onFail();
+				}
     }
 
     loadUser(onSuccess, onFail){
@@ -346,9 +374,16 @@ class GODLIKE {
         return initPluginSummernote.call(this, $context);
     }
 
+		postInitLBCMyAccount($context) {
+			return postInitLBCMyAccount.call(this, $context);
+		}
 
-    postInitNavbar($context) {
-        return postInitNavbar.call(this, $context);
+		initLBCPasswordRecover($context) {
+			return initLBCPasswordRecover.call(this, $context);
+		}
+
+    postInitLBCNavbar($context) {
+        return postInitLBCNavbar.call(this, $context);
     }
 }
 

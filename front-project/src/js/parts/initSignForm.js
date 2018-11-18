@@ -204,13 +204,7 @@ function initSignForm() {
 	$formRegister.find('#btn-register').on('click', (e) => {
 	});
 
-	$.validator.addMethod("lettersAndNumbersOnly", function (value, element) {
-		return this.optional(element) || /^([a-zA-Z0-9]*)$/i.test(value);
-	}, "Insira somente n&uacute;meros e letras");
-
-	$.validator.addMethod("validPass", function (value, element) {
-		return this.optional(element) || /^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\S]*)$/i.test(value);
-	}, "Insira uma senha v&aacute;lida");
+	self.addValidators();
 
 	$($formLost).validate({
 		errorClass: 'nk-error',
