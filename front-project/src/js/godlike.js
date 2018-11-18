@@ -52,6 +52,8 @@ import { initPluginSummernote } from './parts/initPluginSummernote';
 
 /* LBC */
 import { initLBCPasswordRecover } from './parts/initLBCPasswordRecover';
+
+import { postInitLBCMyAccount } from './parts/postInitLBCMyAccount';
 import { postInitLBCNavbar } from './parts/postInitLBCNavbar';
 
 
@@ -155,6 +157,7 @@ class GODLIKE {
 
         const self = this;
         self.postInitLBCNavbar();
+				self.postInitLBCMyAccount();
 
         return self;
     }
@@ -175,7 +178,9 @@ class GODLIKE {
             }, function(){
                 onFail();
             })
-        }
+        }else{
+					onFail();
+				}
     }
 
     loadUser(onSuccess, onFail){
@@ -368,6 +373,10 @@ class GODLIKE {
     initPluginSummernote($context) {
         return initPluginSummernote.call(this, $context);
     }
+
+		postInitLBCMyAccount($context) {
+			return postInitLBCMyAccount.call(this, $context);
+		}
 
 		initLBCPasswordRecover($context) {
 			return initLBCPasswordRecover.call(this, $context);
