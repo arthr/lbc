@@ -47,6 +47,7 @@ class PasswordResetRequest extends Notification
         return (new MailMessage)
             ->from('lineagebrasilclub@gmail.com', 'Lineage Brasil Club')
             ->subject('Recuperar Senha')
+            ->greeting('')
             ->line('Você está recebendo este email porque recebemos uma solicitação de recuperar senha para a sua conta.')
             ->action('Recuperar Senha', url($url))
             ->line('Se você não solicitou uma recuperação de senha, desconsidere este email.');
