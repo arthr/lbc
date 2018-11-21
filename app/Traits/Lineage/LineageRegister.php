@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Traits;
+namespace App\Traits\Lineage;
 
 use App\User;
 use App\GameAuth;
 use App\GameAccount;
 use Illuminate\Http\Request;
 use App\Notifications\SignupActivate;
-use App\Traits\LineagePassword;
+use App\Traits\Lineage\LineagePassword;
 use League\Flysystem\Exception;
 use Illuminate\Support\Facades\DB;
 

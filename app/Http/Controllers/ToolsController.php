@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\BetaUser;
-use App\Traits\LineagePassword;
+use App\Traits\Lineage\LineagePassword;
 use App\Traits\MigrationTool;
 use App\GameAccount;
 use App\GameAuth;

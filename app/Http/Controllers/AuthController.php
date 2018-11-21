@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
 
-use App\Traits\LineageRegister;
+use App\Traits\Lineage\LineageRegister;
 
 class AuthController extends Controller
 {
