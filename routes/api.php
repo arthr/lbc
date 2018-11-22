@@ -11,6 +11,9 @@ Route::group(['prefix' => 'abc', 'middleware' => 'cors'], function () {
 
 Route::group(['prefix' => 'server'], function () {
     Route::get('status', 'ServerController@status');
+    Route::get('announce', 'ServerController@announce');
+    Route::get('nobless', 'ServerController@setNobless');
+    Route::get('pmannounce', 'ServerController@pmAnnounce');
 });
 
 Route::group(['prefix' => 'auth'], function () {
