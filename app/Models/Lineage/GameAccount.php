@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models\Lineage;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
-use App\GameAuth;
-use App\GameCharacter;
+use App\Web\User;
+use App\Models\Lineage\GameAuth;
+use App\Models\Lineage\GameCharacter;
 
 class GameAccount extends Model
 {

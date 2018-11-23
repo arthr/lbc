@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits;
+namespace App\Traits\Beta;
 
-use App\DuplicatedLogin;
-use App\GameAuth;
-use App\GameAccount;
-use App\BetaUser;
+use App\Models\Lineage\DuplicatedLogin;
+use App\Models\Lineage\GameAuth;
+use App\Models\Lineage\GameAccount;
+use App\Models\Beta\BetaUser;
 
 trait MigrationTool
 {

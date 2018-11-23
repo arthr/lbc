@@ -2,9 +2,9 @@
 
 namespace App\Traits\Lineage;
 
-use App\User;
-use App\GameAuth;
-use App\GameAccount;
+use App\Web\User;
+use App\Models\Lineage\GameAuth;
+use App\Models\Lineage\GameAccount;
 
 trait LineageMisc
 {

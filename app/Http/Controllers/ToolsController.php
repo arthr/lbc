@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\BetaUser;
+use App\Models\Beta\BetaUser;
 use App\Traits\Lineage\LineagePassword;
-use App\Traits\MigrationTool;
-use App\GameAccount;
-use App\GameAuth;
-use App\User;
+use App\Traits\Beta\MigrationTool;
+use App\Models\Lineage\GameAccount;
+use App\Models\Lineage\GameAuth;
+use App\Web\User;
 
 class ToolsController extends Controller
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Web;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\GameAccount;
+use App\Models\Lineage\GameAccount;
 
 class User extends Authenticatable
 {

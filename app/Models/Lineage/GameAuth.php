@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models\Lineage;
 
 use Illuminate\Database\Eloquent\Model;
-use App\GameAccount;
+use App\Models\Lineage\GameAccount;
 
 class GameAuth extends Model
 {
