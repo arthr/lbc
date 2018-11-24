@@ -3,7 +3,7 @@
 namespace App\Models\Lineage;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Web\User;
+use App\Models\User;
 use App\Models\Lineage\GameAuth;
 use App\Models\Lineage\GameCharacter;
 

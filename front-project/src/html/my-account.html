@@ -29,7 +29,7 @@
                 <div class="nk-gap"></div>
 
                 <div class="table-responsive nk-social-notifications">
-                    <table class="table table-bordered">
+                    <table id="user-game-accounts" class="table table-bordered">
                         <thead class="thead-default">
                             <tr>
                                 <th>
@@ -137,22 +137,22 @@
 
                 <div class="nk-box-3">
 
-                    <!-- START: Form 2 -->
-                    <form id="new-account-modal-form" action class="nk-form nk-form-ajax nk-form-style-1">
-                        <input type="text" class="form-control required" minlength="4" maxlength="14" name="login"
+                    <!-- START: Account Form -->
+                    <form action class="nk-form nk-form-ajax nk-form-style-1 new-account-form">
+                        <input type="text" class="form-control required" id="new_login" minlength="4" maxlength="14" name="login"
                             placeholder="Login *">
                         <div class="nk-gap"></div>
-                        <input type="password" class="form-control required" minlength="4" maxlength="14" name="password"
+                        <input type="password" class="form-control required" id="new_password" minlength="4" maxlength="14" name="password"
                             placeholder="Senha *">
                         <div class="nk-gap"></div>
-                        <input type="password" class="form-control required" minlength="4" maxlength="14" name="password_confirm"
+                        <input type="password" class="form-control required" id="new_password_confirm" minlength="4" maxlength="14" name="password_confirm"
                             placeholder="Confirmar Senha *">
                         <div class="nk-gap"></div>
                         <div class="nk-form-response-success"></div>
                         <div class="nk-form-response-error"></div>
                         <button class="nk-btn nk-btn-lg link-effect-4">Cadastrar</button>
                     </form>
-                    <!-- END: Form 2 -->
+                    <!-- END: Account Form -->
 
                 </div>
 

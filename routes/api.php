@@ -22,7 +22,6 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('signup/activate/{token}', 'AuthController@signupActivate');
 
     Route::group(['middleware' => 'auth:api'], function () {
-        Route::post('changepass', 'AccountController@changepass');
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
     });
@@ -36,4 +35,5 @@ Route::group(['middleware' => 'api', 'prefix' => 'password'], function () {
 
 Route::group(['prefix' => 'account', 'middleware' => 'auth:api'], function () {
     Route::get('details', 'AccountController@details');
+    Route::post('create', 'AccountController@create');
 });

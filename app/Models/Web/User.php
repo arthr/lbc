@@ -46,6 +46,6 @@ class User extends Authenticatable
     public function getLastLoginAttribute()
     {
         $lastLogin = $this->gameAccount()->orderBy('last_login', 'DESC')->first()->last_login;
-        return $lastLogin->format('Y-m-d H:i:s.v');
+        return $lastLogin ? $lastLogin->format('Y-m-d H:i:s.v') : '2018-11-24 00:00:00.000';
     }
 }

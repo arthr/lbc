@@ -1,6 +1,6 @@
 import { $, tween, $wnd } from './_utility';
 
-function initLBCMyAccount() {
+function initLBCMyAccountConfigs() {
 	const self = this;
 
 	const $newAccountForm = $(".new-account-form");
@@ -106,4 +106,4 @@ function initLBCMyAccount() {
 	});
 }
 
-export { initLBCMyAccount };
+export { initLBCMyAccountConfigs };

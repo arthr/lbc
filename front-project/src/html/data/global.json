@@ -544,8 +544,9 @@
     },
     "navigation_social": {
         "my-account.html": {
+            "id": "menu-contas",
             "name": "Contas",
-            "count": 1
+            "count": 1            
         },
         "collaboration.html": {
             "name": "Colabora&ccedil;&atilde;o"

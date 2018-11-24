@@ -1,7 +1,13 @@
+{% macro parrot_id(val) %}
+{% if val %}
+    id="{{val}}"
+{% endif %}
+{% endmacro %}
+
 {% macro submenu(nav) -%}
 {% for file, item in nav -%}
 <li class="{{ 'active' if isActiveMenuItem(file, item, filename) }}">
-    <a href="{{file | safe}}">
+    <a {{ parrot_id(item.id) if item.id }} href="{{file | safe}}">
         {{item.name | safe}}
         {%- if item.count -%}
         <span class="nk-badge">{{item.count | safe}}</span>
@@ -20,9 +26,10 @@
 <div class="nk-accordion d-lg-none" id="nk-social-menu-mobile" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="nk-social-menu-mobile-1-heading">
-            <a data-toggle="collapse" data-parent="#nk-social-menu-mobile" href="#nk-social-menu-mobile-1" aria-expanded="true" aria-controls="nk-social-menu-mobile-1" class="collapsed">
-                 Menu
-             </a>
+            <a data-toggle="collapse" data-parent="#nk-social-menu-mobile" href="#nk-social-menu-mobile-1"
+                aria-expanded="true" aria-controls="nk-social-menu-mobile-1" class="collapsed">
+                Menu
+            </a>
         </div>
         <div id="nk-social-menu-mobile-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nk-social-menu-mobile-1-heading">
             <div class="nk-social-menu">

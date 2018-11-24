@@ -10,6 +10,8 @@ use App\Notifications\SignupActivate;
 use App\Traits\Lineage\LineagePassword;
 use League\Flysystem\Exception;
 use Illuminate\Support\Facades\DB;
+use App\Rules\Lineage\MaxAccount;
+use App\Rules\Lineage\UniqueAccount;
 
 trait LineageRegister
 {
@@ -18,10 +20,10 @@ trait LineageRegister
     public function createAccount(Request $request, bool $notify)
     {
         $request->validate([
-            'name' => 'required|string',
-            'login' => 'required|string|unique:users|min:4|max:14|regex:/^([a-zA-Z0-9]*)$/i',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|min:4|max:14|confirmed|regex:/^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d[:graph:]]*)$/i',
+            'name' => ['required', 'string'],
+            'login' => ['required', 'string', 'unique:users', new UniqueAccount(), 'min:4', 'max:14', 'regex:/^([a-zA-Z0-9]*)$/i'],
+            'email' => ['required', 'string', 'email', 'unique:users'],
+            'password' => ['required', 'string', 'min:4', 'max:14', 'confirmed', 'regex:/^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d[:graph:]]*)$/i'],
         ]);
 
         $user = $this->createWebAccount($request);
@@ -31,6 +33,19 @@ trait LineageRegister
         $notify ? $user->notify(new SignupActivate($user)) : null;
 
         return $user;
+    }
+
+    public function createSingleGameAccount(Request $request)
+    {
+        $request->validate([
+            'login' => ['required', 'string', 'unique:users', new UniqueAccount(), new MaxAccount($request, 3), 'min:4', 'max:14', 'regex:/^([a-zA-Z0-9]*)$/i'],
+            'password' => ['required', 'string', 'min:4', 'max:14', 'confirmed', 'regex:/^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d[:graph:]]*)$/i'],
+        ]);
+
+        $gameAuth = $this->createGameAuth($request);
+        $gameAccount = $this->createGameAccount($request, $request->user()->id);
+
+        return $gameAccount;
     }
 
     protected function createWebAccount(Request $request)

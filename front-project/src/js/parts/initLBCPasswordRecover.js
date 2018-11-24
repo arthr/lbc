@@ -64,7 +64,7 @@ function initLBCPasswordRecover() {
 				success(response) {
 					$responseError.hide();
 					$responseSuccess.html("Sua senha foi altera com sucesso! Favor, realize seu login.").show();
-					//TODO
+					//TODO Animations?
 				},
 				error(response) {
 					let msg = response.responseJSON.message;
