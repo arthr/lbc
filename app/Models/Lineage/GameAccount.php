@@ -3,7 +3,7 @@
 namespace App\Models\Lineage;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Web\User;
+use App\Models\Web\User;
 use App\Models\Lineage\GameAuth;
 use App\Models\Lineage\GameCharacter;
 
@@ -15,6 +15,10 @@ class GameAccount extends Model
     protected $primaryKey = 'account';
     public $incrementing = false;
     public $keyType = 'string';
+
+    protected $dates = [
+        'block_end_date', 'last_login', 'last_logout',
+    ];
 
     protected $guarded = [
         'account'

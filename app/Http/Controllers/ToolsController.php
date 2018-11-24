@@ -9,7 +9,7 @@ use App\Traits\Lineage\LineagePassword;
 use App\Traits\Beta\MigrationTool;
 use App\Models\Lineage\GameAccount;
 use App\Models\Lineage\GameAuth;
-use App\Web\User;
+use App\Models\Web\User;
 
 class ToolsController extends Controller
 {

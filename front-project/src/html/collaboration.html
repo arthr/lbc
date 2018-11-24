@@ -1,0 +1,74 @@
+{% set header_title = 'Minha Conta' %}
+{% set header_title_show = false %}
+{% set header_image = 'assets/images/lineage-bg-toi.jpg' %}
+{% set header_visible = 5 %}
+{% set header_size = 'sm' %}
+{% extends 'layouts/layout-1.html' %}
+
+{% block content %}
+<div class="container">
+    {% include "shared/social-profile-container.html" %}
+
+    <div class="row vertical-gap">
+        <div class="col-lg-3">
+
+            <aside class="nk-sidebar nk-sidebar-left nk-sidebar-sticky">
+                <div class="nk-gap-2"></div>
+                {% include "shared/social-menu.html" %}
+                <div class="nk-gap-4 d-none d-lg-block"></div>
+            </aside>
+
+        </div>
+        <div class="col-lg-9">
+
+            <div class="nk-social-container">
+                <h5>Colaborações</h5>
+                <p>Em breve...</p>
+            </div>
+            <div class="nk-gap-4"></div>
+        </div>
+    </div>
+    <div class="nk-gap-4"></div>
+    <div class="nk-gap-3"></div>
+</div>
+{% endblock %}
+
+{% block after_content %}
+<div id="new-account-modal" class="modal nk-modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="new-account-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title nk-title">Criar Conta</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="ion-android-close"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="nk-box-3">
+
+                    <!-- START: Form 2 -->
+                    <form id="new-account-modal-form" action class="nk-form nk-form-ajax nk-form-style-1">
+                        <input type="text" class="form-control required" minlength="4" maxlength="14" name="login"
+                            placeholder="Login *">
+                        <div class="nk-gap"></div>
+                        <input type="password" class="form-control required" minlength="4" maxlength="14" name="password"
+                            placeholder="Senha *">
+                        <div class="nk-gap"></div>
+                        <input type="password" class="form-control required" minlength="4" maxlength="14" name="password_confirm"
+                            placeholder="Confirmar Senha *">
+                        <div class="nk-gap"></div>
+                        <div class="nk-form-response-success"></div>
+                        <div class="nk-form-response-error"></div>
+                        <button class="nk-btn nk-btn-lg link-effect-4">Cadastrar</button>
+                    </form>
+                    <!-- END: Form 2 -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

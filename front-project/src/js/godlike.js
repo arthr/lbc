@@ -52,6 +52,7 @@ import { initPluginSummernote } from './parts/initPluginSummernote';
 
 /* LBC */
 import { initLBCPasswordRecover } from './parts/initLBCPasswordRecover';
+import { initLBCMyAccount } from './parts/initLBCMyAccount';
 
 import { postInitLBCMyAccount } from './parts/postInitLBCMyAccount';
 import { postInitLBCNavbar } from './parts/postInitLBCNavbar';
@@ -119,11 +120,11 @@ class GODLIKE {
         self.initPluginTypedjs();
         self.initPluginSummernote();
 
-				//LBC
-				self.initLBCPasswordRecover();
+        //LBC
+        self.initLBCPasswordRecover();
 
-				//Ativa os validadores de form;
-				self.initForms();
+        //Ativa os validadores de form;
+        self.initForms();
 
         self.initPreloader();
 
@@ -135,34 +136,34 @@ class GODLIKE {
         return self;
     }
 
-		urlParam(name){
-				var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-				if (results==null) {
-					 return null;
-				}
-				return decodeURI(results[1]) || 0;
-		}
+    urlParam(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+            return null;
+        }
+        return decodeURI(results[1]) || 0;
+    }
 
-		addValidators(){
-			$.validator.addMethod("lettersAndNumbersOnly", function (value, element) {
-				return this.optional(element) || /^([a-zA-Z0-9]*)$/i.test(value);
-			}, "Insira somente n&uacute;meros e letras");
+    addValidators() {
+        $.validator.addMethod("lettersAndNumbersOnly", function (value, element) {
+            return this.optional(element) || /^([a-zA-Z0-9]*)$/i.test(value);
+        }, "Insira somente n&uacute;meros e letras");
 
-			$.validator.addMethod("validPass", function (value, element) {
-				return this.optional(element) || /^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\S]*)$/i.test(value);
-			}, "Insira uma senha v&aacute;lida");
-		}
+        $.validator.addMethod("validPass", function (value, element) {
+            return this.optional(element) || /^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\S]*)$/i.test(value);
+        }, "Insira uma senha v&aacute;lida");
+    }
 
-    postInit(){
+    postInit() {
 
         const self = this;
         self.postInitLBCNavbar();
-				self.postInitLBCMyAccount();
+        self.postInitLBCMyAccount();
 
         return self;
     }
 
-    logout(){
+    logout() {
         localStorage.removeItem("auth");
         localStorage.removeItem("user");
         return location.reload();
@@ -171,22 +172,22 @@ class GODLIKE {
     loadAuth(onSuccess, onFail) {
         const auth = localStorage.getItem("auth");
         let self = this;
-        if(auth){
-            self.loadUser(function(user){
+        if (auth) {
+            self.loadUser(function (user) {
                 self.user = user;
                 onSuccess();
-            }, function(){
+            }, function () {
                 onFail();
             })
-        }else{
-					onFail();
-				}
+        } else {
+            onFail();
+        }
     }
 
-    loadUser(onSuccess, onFail){
+    loadUser(onSuccess, onFail) {
         let auth = localStorage.getItem("auth");
 
-        if(!auth){
+        if (!auth) {
             alert('Falha ao obter dados de auth.');
             return location.reload();
         }
@@ -206,7 +207,7 @@ class GODLIKE {
             },
             error(response) {
                 let msg = response.responseJSON.message;
-                if(msg){
+                if (msg) {
                     localStorage.removeItem("auth");
                     localStorage.removeItem("user");
                     onFail();
@@ -374,13 +375,17 @@ class GODLIKE {
         return initPluginSummernote.call(this, $context);
     }
 
-		postInitLBCMyAccount($context) {
-			return postInitLBCMyAccount.call(this, $context);
-		}
+    initLBCMyAccount($context) {
+        return initLBCMyAccount.call(this, $context);
+    }
 
-		initLBCPasswordRecover($context) {
-			return initLBCPasswordRecover.call(this, $context);
-		}
+    postInitLBCMyAccount($context) {
+        return postInitLBCMyAccount.call(this, $context);
+    }
+
+    initLBCPasswordRecover($context) {
+        return initLBCPasswordRecover.call(this, $context);
+    }
 
     postInitLBCNavbar($context) {
         return postInitLBCNavbar.call(this, $context);

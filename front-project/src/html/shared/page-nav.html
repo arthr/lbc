@@ -41,26 +41,12 @@
     {% endfor %}
 {% endmacro %}
 
-<!--
-    Additional Classes:
-        .nk-header-opaque
--->
 <header class="nk-header{{ ' nk-header-opaque' if nav_opaque }}">
 
     {% if nav_contacts %}
     {% include "shared/page-nav-contacts.html" %}
     {% endif %}
 
-    <!--
-        START: Navbar
-
-        Additional Classes:
-            .nk-navbar-sticky
-            .nk-navbar-transparent
-            .nk-navbar-autohide
-            .nk-navbar-light
-            .nk-navbar-no-link-effect
-    -->
     <nav class="nk-navbar nk-navbar-top{{ ' nk-navbar-sticky' if nav_sticky }}{{ ' nk-navbar-transparent' if nav_transparent }}{{ ' nk-navbar-autohide' if nav_autohide and nav_sticky }}{{ ' nk-navbar-light' if nav_light }}">
         <div class="container">
             <div class="nk-nav-table">
@@ -153,6 +139,5 @@
             </div>
         </div>
     </nav>
-    <!-- END: Navbar -->
 
 </header>

@@ -67,48 +67,48 @@
         "color": false,
         "audio": "assets/mp3/purpleplanetmusic-desolation.mp3"
     },
-		"navigation": {
-				"index.html": {
-						"name": "Home"
-				},
-				"server-info.html": {
-						"name": "Server Info"
-				},
-				"download.html": {
-						"name": "Baixar",
-						"sub": {
-								"http://google.com": {
-										"name": "System LBC"
-								},
-								"http://facebook.com": {
-										"name": "Client Interlude"
-								}
-						}
-				},
-				"#": {
-						"name": "Ranking",
-						"sub": {
-								"ranking-pvp.html": {
-										"name": "PVP"
-								},
-								"ranking-pk.html": {
-										"name": "PVP"
-								},
-								"ranking-level.html": {
-										"name": "Level"
-								},
-								"ranking-olympics.html": {
-										"name": "Olimp&iacute;adas"
-								},
-								"ranking-castle.html": {
-										"name": "Castelos"
-								}
-						}
-				},
-				"http://uol.com.br": {
-						"name": "F&oacute;rum"
-				}
-		},
+    "navigation": {
+        "index.html": {
+            "name": "Home"
+        },
+        "server-info.html": {
+            "name": "Server Info"
+        },
+        "download.html": {
+            "name": "Baixar",
+            "sub": {
+                "http://google.com": {
+                    "name": "System LBC"
+                },
+                "http://facebook.com": {
+                    "name": "Client Interlude"
+                }
+            }
+        },
+        "#": {
+            "name": "Ranking",
+            "sub": {
+                "ranking-pvp.html": {
+                    "name": "PVP"
+                },
+                "ranking-pk.html": {
+                    "name": "PVP"
+                },
+                "ranking-level.html": {
+                    "name": "Level"
+                },
+                "ranking-olympics.html": {
+                    "name": "Olimp&iacute;adas"
+                },
+                "ranking-castle.html": {
+                    "name": "Castelos"
+                }
+            }
+        },
+        "http://uol.com.br": {
+            "name": "F&oacute;rum"
+        }
+    },
     "_navigation": {
         "index.html": {
             "name": "Home",
@@ -543,29 +543,15 @@
         }
     },
     "navigation_social": {
-        "social-user-activity.html": {
-            "name": "Activity"
+        "my-account.html": {
+            "name": "Contas",
+            "count": 1
         },
-        "social-user-notifications.html": {
-            "name": "Notifications"
+        "collaboration.html": {
+            "name": "Colabora&ccedil;&atilde;o"
         },
-        "social-user-messages.html": {
-            "name": "Messages",
-            "count": 192
-        },
-        "social-user-friends.html": {
-            "name": "Friends",
-            "count": 19
-        },
-        "social-user-groups.html": {
-            "name": "Groups",
-            "count": 2
-        },
-        "forum.html": {
-            "name": "Forum"
-        },
-        "social-user-settings.html": {
-            "name": "Settings"
+        "my-account-configs.html": {
+            "name": "Configura&ccedil;&otilde;es"
         }
     },
     "navigation_social_group": {
@@ -583,36 +569,38 @@
             "name": "Manage"
         }
     },
-
     "users": [
         {
             "name": "Lesa Cruz",
             "url": "#",
             "avatar": "assets/images/avatar-1.jpg",
             "avatar_sm": "assets/images/avatar-1-sm.jpg"
-        }, {
+        },
+        {
             "name": "Kurt Tucker",
             "url": "#",
             "avatar": "assets/images/avatar-2.jpg",
             "avatar_sm": "assets/images/avatar-2-sm.jpg"
-        }, {
+        },
+        {
             "name": "Katie Anderson",
             "url": "#",
             "avatar": "assets/images/avatar-3.jpg",
             "avatar_sm": "assets/images/avatar-3-sm.jpg"
-        }, {
+        },
+        {
             "name": "Luke Fuller",
             "url": "#",
             "avatar": "assets/images/avatar-4.jpg",
             "avatar_sm": "assets/images/avatar-4-sm.jpg"
-        }, {
+        },
+        {
             "name": "Felicia Meyer",
             "url": "#",
             "avatar": "assets/images/avatar-5.jpg",
             "avatar_sm": "assets/images/avatar-5-sm.jpg"
         }
     ],
-
     "posts": [
         {
             "title": "Image Blog Post",
@@ -629,7 +617,8 @@
             "comments_count": 4,
             "likes_count": 17,
             "views_count": 589
-        }, {
+        },
+        {
             "title": "Video Blog Post",
             "type": "video",
             "video": "https://www.youtube.com/watch?v=t7FPtbLfgxU",
@@ -645,7 +634,8 @@
             "comments_count": 7,
             "likes_count": 9,
             "views_count": 875
-        }, {
+        },
+        {
             "title": "Blockquote Blog Post",
             "type": "quote",
             "thumb_full": "assets/images/post-3.jpg",
@@ -661,7 +651,8 @@
             "comments_count": 7,
             "likes_count": 9,
             "views_count": 1290
-        }, {
+        },
+        {
             "title": "Audio Blog Post",
             "type": "audio",
             "audio": "",
@@ -677,7 +668,8 @@
             "comments_count": 23,
             "likes_count": 46,
             "views_count": 1682
-        }, {
+        },
+        {
             "title": "Gallery Blog Post",
             "type": "gallery",
             "gallery": [
@@ -685,11 +677,13 @@
                     "thumb": "assets/images/post-5-mid.jpg",
                     "full": "assets/images/post-5.jpg",
                     "size": "1920x1280"
-                }, {
+                },
+                {
                     "thumb": "assets/images/post-6-mid.jpg",
                     "full": "assets/images/post-6.jpg",
                     "size": "1920x1280"
-                }, {
+                },
+                {
                     "thumb": "assets/images/post-7-mid.jpg",
                     "full": "assets/images/post-7.jpg",
                     "size": "1920x1280"
@@ -707,7 +701,8 @@
             "comments_count": 13,
             "likes_count": 0,
             "views_count": 1122
-        }, {
+        },
+        {
             "title": "Standard Blog Post",
             "type": "standard",
             "thumb_full": "assets/images/post-7.jpg",
@@ -724,7 +719,6 @@
             "views_count": 4592
         }
     ],
-
     "shop": [
         {
             "title": "Women Tshirt",
@@ -733,112 +727,135 @@
                 {
                     "full": "assets/images/product-1.png",
                     "sm": "assets/images/product-1-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-1-blue.png",
                     "sm": "assets/images/product-1-blue-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-1-green.png",
                     "sm": "assets/images/product-1-green-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-1-orange.png",
                     "sm": "assets/images/product-1-orange-sm.png"
                 }
             ],
             "url": "store-product.html",
             "rating": "90%"
-        }, {
+        },
+        {
             "title": "Men Tshirt",
             "price": "$67.00",
             "photos": [
                 {
                     "full": "assets/images/product-2.png",
                     "sm": "assets/images/product-2-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-2-blue.png",
                     "sm": "assets/images/product-2-blue-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-2-green.png",
                     "sm": "assets/images/product-2-green-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-2-orange.png",
                     "sm": "assets/images/product-2-orange-sm.png"
                 }
             ],
             "url": "store-product.html",
             "rating": "50%"
-        }, {
+        },
+        {
             "title": "Women Hoodie",
             "price": "$125.00",
             "photos": [
                 {
                     "full": "assets/images/product-3.png",
                     "sm": "assets/images/product-3-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-3-blue.png",
                     "sm": "assets/images/product-3-blue-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-3-green.png",
                     "sm": "assets/images/product-3-green-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-3-orange.png",
                     "sm": "assets/images/product-3-orange-sm.png"
                 }
             ],
             "url": "store-product.html",
             "rating": "100%"
-        }, {
+        },
+        {
             "title": "Men Hoodie",
             "price": "$125.00 <del>$145.00</del>",
             "photos": [
                 {
                     "full": "assets/images/product-4.png",
                     "sm": "assets/images/product-4-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-4-blue.png",
                     "sm": "assets/images/product-4-blue-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-4-green.png",
                     "sm": "assets/images/product-4-green-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-4-orange.png",
                     "sm": "assets/images/product-4-orange-sm.png"
                 }
             ],
             "url": "store-product.html"
-        }, {
+        },
+        {
             "title": "Women Cap",
             "price": "$25.99",
             "photos": [
                 {
                     "full": "assets/images/product-5.png",
                     "sm": "assets/images/product-5-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-5-blue.png",
                     "sm": "assets/images/product-5-blue-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-5-green.png",
                     "sm": "assets/images/product-5-green-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-5-orange.png",
                     "sm": "assets/images/product-5-orange-sm.png"
                 }
             ],
             "url": "store-product.html",
             "rating": "80%"
-        }, {
+        },
+        {
             "title": "Men Cap",
             "price": "$25.99",
             "photos": [
                 {
                     "full": "assets/images/product-6.png",
                     "sm": "assets/images/product-6-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-6-blue.png",
                     "sm": "assets/images/product-6-blue-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-6-green.png",
                     "sm": "assets/images/product-6-green-sm.png"
-                }, {
+                },
+                {
                     "full": "assets/images/product-6-orange.png",
                     "sm": "assets/images/product-6-orange-sm.png"
                 }

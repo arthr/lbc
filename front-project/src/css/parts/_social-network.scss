@@ -319,6 +319,14 @@
         width: 55%;
     }
 
+    .nk-social-notifications-login {
+        width: 35%;
+    }
+
+    .nk-social-notifications-status {
+        text-align: center;
+    }
+
     .nk-social-notifications-description a,
     .nk-social-notifications-actions a {
         color: inherit;
@@ -334,6 +342,7 @@
         margin-right: -5px;
         margin-left: -5px;
         font-size: .9em;
+        text-align: center;
 
         a {
             margin-right: 5px;

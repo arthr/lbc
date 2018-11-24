@@ -209,11 +209,15 @@ function initNavbar() {
         }
     });
 
-		$.get( `${self.options.serverURL}/api/server/status`, function( data ) {
-		  $(".nk-contacts-left #game-status").html(data.gameserver);
-			$(".nk-contacts-left #login-status").html(data.loginserver);
-			$(".nk-contacts-left #npc-status").html(data.npcserver);
-		});
+    $.get(`${self.options.serverURL}/api/server/status`, function (data) {
+        if (data.gameserver)
+            $(".nk-contacts-left #game-status").removeClass('text-danger').addClass('text-success').html('online');
+
+        if (data.loginserver)
+            $(".nk-contacts-left #login-status").removeClass('text-danger').addClass('text-success').html('online');
+
+        //$(".nk-contacts-left #npc-status").html(data.npcserver);
+    });
 }
 
 export { initNavbar };

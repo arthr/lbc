@@ -2,7 +2,7 @@
 
 namespace App\Traits\Lineage;
 
-use App\Web\User;
+use App\Models\Web\User;
 use App\Models\Lineage\GameAuth;
 use App\Models\Lineage\GameAccount;
 

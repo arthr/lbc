@@ -4,8 +4,8 @@
 
 -------------------------------------------------------------------*/
 const options = {
-		//serverURL: 'http://localhost:8005/http://192.168.15.30:8000', //bypass CORS
-		serverURL: 'http://127.0.0.1:8000',
+    //serverURL: 'http://localhost:8005/http://192.168.15.30:8000', //bypass CORS
+    serverURL: 'http://192.168.15.30:8000',
     enableSearchAutofocus: true,
     enableActionLikeAnimation: true,
     enableShortcuts: true,
@@ -23,9 +23,9 @@ const options = {
 
         cookieAlert:
             `<span class="nk-cookie-alert-close"><span class="nk-icon-close"></span></span>
-            Cookie alert are ready to use. You can simply change content inside this alert or disable it in javascript theme options. <a href="#">Cookies policy</a>.
+            Cookie alert chat&atilde;o da poha. <a href="#">Cookies policy</a>.
             <div class="nk-gap"></div>
-            <span class="nk-cookie-alert-confirm nk-btn link-effect-4 nk-btn-bg-white nk-btn-color-dark-1">Confirm</span>`,
+            <span class="nk-cookie-alert-confirm nk-btn link-effect-4 nk-btn-bg-white nk-btn-color-dark-1">Confirmar</span>`,
 
         plainVideoIcon: '<span class="nk-video-icon"><i class="fa fa-play pl-5"></i></span>',
         plainVideoLoadIcon: '<span class="nk-loading-spinner"><i></i></span>',

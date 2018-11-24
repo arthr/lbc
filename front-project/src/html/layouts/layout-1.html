@@ -1,10 +1,6 @@
 {% import "macros/macros.html" as macros %}
 {% include "layouts/_head.html" %}
 
-<!--
-    Additional Classes:
-        .nk-page-boxed
--->
 <body{{ ' class="nk-page-boxed"' | safe if page_boxed }}>
     {% include "shared/page-preloader.html" %}
     {% if background %}

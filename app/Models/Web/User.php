@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Web;
+namespace App\Models\Web;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -34,8 +34,18 @@ class User extends Authenticatable
         'password', 'remember_token', 'activation_token',
     ];
 
+    protected $appends = [
+        'last_login',
+    ];
+
     public function gameAccount()
     {
         return $this->hasMany(GameAccount::class);
+    }
+
+    public function getLastLoginAttribute()
+    {
+        $lastLogin = $this->gameAccount()->orderBy('last_login', 'DESC')->first()->last_login;
+        return $lastLogin->format('Y-m-d H:i:s.v');
     }
 }
