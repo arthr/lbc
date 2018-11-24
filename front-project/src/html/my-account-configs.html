@@ -23,21 +23,24 @@
 
             <div class="nk-social-container">
                 <h5>Configurações :: Alterar Senha</h5>
+
                 <!-- START: Configs -->
-                <form action="#">
-                    <input type="email" class="form-control" name="email" placeholder="Account Email" value="user@email.com">
+                <form action class="nk-form nk-form-ajax nk-form-style-1 account-configs-form">
+                    <input type="email" class="form-control" id="conf_email" name="email" disabled placeholder="E-mail"
+                        value="user@email.com">
                     <div class="nk-gap-2"></div>
-                    <input type="password" class="form-control" name="password" placeholder="Senha Atual">
+                    <input type="password" class="form-control" id="conf_new_password" name="new_password" placeholder="Nova Senha">
                     <div class="nk-gap-2"></div>
-                    <input type="password" class="form-control" name="new_password" placeholder="Nova Senha">
-                    <div class="nk-gap-2"></div>
-                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirmar Nova Senha">
+                    <input type="password" class="form-control" id="conf_password_confirm" name="confirm_password"
+                        placeholder="Confirmar Nova Senha">
                     <div class="mt-10">
                         <em>A senha deve conter uma letra e um n&uacute;mero, um m&iacute;nimo de 4 e um m&aacute;ximo
                             de 14 caracteres.</em>
                     </div>
-                    <div class="nk-gap-2"></div>
-                    <button class="nk-btn link-effect-4 float-right">Alterar Senha</button>
+                    <div class="nk-gap"></div>
+                    <div class="nk-form-response-success"></div>
+                    <div class="nk-form-response-error"></div>
+                    <button class="nk-btn nk-btn-lg link-effect-4 float-right">Alterar Senha</button>
                 </form>
                 <!-- END: Configs -->
 

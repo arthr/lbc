@@ -46,6 +46,18 @@ trait MigrationTool
     }
 
     /**
+     * Password Adjust
+     *
+     * @param  [string] $str
+     * @param  [integer] $size
+     * @return [string] adjusted string
+     */
+    public function passwordAdjust(string $str, int $size)
+    {
+        return $this->cutString($this->trim($str), $size);
+    }
+
+    /**
      * Trim and Lower string
      *
      * @param  [string] $str
@@ -54,6 +66,11 @@ trait MigrationTool
     public function trimLower(string $str)
     {
         return strtolower(str_replace(' ', '', $str));
+    }
+
+    public function trim(string $str)
+    {
+        return str_replace(' ', '', $str);
     }
 
     /**

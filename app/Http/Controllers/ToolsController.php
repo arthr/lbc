@@ -19,7 +19,7 @@ class ToolsController extends Controller
     public function migrateBetaAccounts(Request $request)
     {
         if ($request->exe) {
-            ini_set('max_execution_time', 3000);
+            ini_set('max_execution_time', 30000);
             $users = BetaUser::all()->groupBy('name');
 
             foreach ($users as $user) {
@@ -53,7 +53,7 @@ class ToolsController extends Controller
              */
             $login = $this->stringAdjust($user->email, 14);
             $email = $user->name;
-            $pass = $this->stringAdjust($user->senha, 14);
+            $pass = $this->passwordAdjust($user->senha, 14);
 
             if (!$this->duplicatedLogin($user)) {
                 # user_auth
@@ -65,6 +65,7 @@ class ToolsController extends Controller
                 # users [web]
                     $userWeb = new User([
                         'name' => $login,
+                        'login' => $login,
                         'email' => $email,
                         'password' => bcrypt($pass),
                         'activation_token' => str_random(60)

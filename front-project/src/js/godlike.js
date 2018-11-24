@@ -56,6 +56,8 @@ import { initLBCMyAccount } from './parts/initLBCMyAccount';
 import { initLBCMyAccountConfigs } from './parts/initLBCMyAccountConfigs';
 
 import { postInitLBCMyAccount } from './parts/postInitLBCMyAccount';
+import { postInitLBCMyAccountConfigs } from './parts/postInitLBCMyAccountConfigs';
+
 import { postInitLBCNavbar } from './parts/postInitLBCNavbar';
 
 
@@ -160,8 +162,10 @@ class GODLIKE {
     postInit() {
 
         const self = this;
+        
         self.postInitLBCNavbar();
         self.postInitLBCMyAccount();
+        self.postInitLBCMyAccountConfigs();
 
         return self;
     }
@@ -386,6 +390,9 @@ class GODLIKE {
     }
     initLBCMyAccountConfigs($context) {
         return initLBCMyAccountConfigs.call(this, $context);
+    }
+    postInitLBCMyAccountConfigs($context) {
+        return postInitLBCMyAccountConfigs.call(this, $context);
     }
     initLBCPasswordRecover($context) {
         return initLBCPasswordRecover.call(this, $context);

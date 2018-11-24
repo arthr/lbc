@@ -14,6 +14,7 @@ function postInitLBCMyAccount() {
 		let gameAccounts = user.game_account;
 		let accountTable = $('table#user-game-accounts > tbody');
 
+		//ACP Profile Header / Side Menu
 		$('.nk-social-profile-info .nk-social-profile-info-name').html(user.name);
 		$('.nk-social-profile-info .nk-social-profile-info-last-seen').html(`&Uacute;ltimo Acesso: ${lastLogin.getDate()}/${lastLogin.getMonth()}/${lastLogin.getFullYear()} &agrave;s ${lastLogin.getHours()}:${lastLogin.getMinutes()}`);
 		$('.nk-social-profile-info .nk-social-profile-info-username.vip-status').html(premiumMessage);

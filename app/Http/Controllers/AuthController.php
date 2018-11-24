@@ -123,4 +123,20 @@ class AuthController extends Controller
 
         return $user;
     }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'password' => ['required', 'string', 'min:4', 'max:14', 'confirmed', 'regex:/^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d[:graph:]]*)$/i'],
+        ]);
+
+        $user = User::find($request->user()->id);
+
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return response()->json([
+            'message' => 'Senha alterada com sucesso.',
+        ], 201);
+    }
 }
