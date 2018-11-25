@@ -2,25 +2,28 @@ import { $, tween, $wnd } from './_utility';
 
 function initLBCEmailConfirmation() {
 	const self = this;
-	const token = self.urlParam('token');
+	
+	if (location.href.indexOf('email-confirmation.html') > 0) {
+		const token = self.urlParam('token');
 
-	const $confirmationSuccess = $('.confirmation-success');
-	const $confirmationError = $('.confirmation-error');
+		const $confirmationSuccess = $('.confirmation-success');
+		const $confirmationError = $('.confirmation-error');
 
-	$('.confirmation-success, .confirmation-error').hide();
+		$('.confirmation-success, .confirmation-error').hide();
 
-	if (token && location.href.indexOf('email-confirmation.html') > 0) {
-		$.get(`${self.options.serverURL}/api/auth/signup/activate/${token}`, function (data) {
-			if (data.error) {
-				$confirmationError.show();
-				return;
-			}
+		if (token) {
+			$.get(`${self.options.serverURL}/api/auth/signup/activate/${token}`, function (data) {
+				if (data.error) {
+					$confirmationError.show();
+					return;
+				}
 
-			$confirmationSuccess.show();
-		});
-	} else {
-		$confirmationError.show();
-		console.log('Invalid Token');
+				$confirmationSuccess.show();
+			});
+		} else {
+			$confirmationError.show();
+			console.log('Invalid Token');
+		}
 	}
 }
 

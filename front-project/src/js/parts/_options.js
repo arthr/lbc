@@ -5,7 +5,7 @@
 -------------------------------------------------------------------*/
 const options = {
     //serverURL: 'http://localhost:8005/http://192.168.15.30:8000', //bypass CORS
-    serverURL: 'http://192.168.15.30:8000',//'http://lineagebrasilclub.ddns.net',
+    serverURL: '//lineagebrasilclub.ddns.net',//'http://lineagebrasilclub.ddns.net',
     enableSearchAutofocus: true,
     enableActionLikeAnimation: true,
     enableShortcuts: true,
