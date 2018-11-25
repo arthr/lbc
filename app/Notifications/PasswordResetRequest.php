@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\Config;
 
 class PasswordResetRequest extends Notification
 {
@@ -42,14 +43,14 @@ class PasswordResetRequest extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url('/password-recover.html?token=' . $this->token);
+        $url = Config::get('app.url') . '/password-recover.html?token=' . $this->token;
 
         return (new MailMessage)
             ->from('lineagebrasilclub@gmail.com', 'Lineage Brasil Club')
             ->subject('Recuperar Senha')
             ->greeting('')
             ->line('Você está recebendo este email porque recebemos uma solicitação de recuperar senha para a sua conta.')
-            ->action('Recuperar Senha', url($url))
+            ->action('Recuperar Senha', $url)
             ->line('Se você não solicitou uma recuperação de senha, desconsidere este email.');
 
     }

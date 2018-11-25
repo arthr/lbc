@@ -43,7 +43,7 @@ class SignupActivate extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url('/email-confirmation.html?token=' . $notifiable->activation_token);
+        $url = Config::get('app.url') . '/email-confirmation.html?token=' . $notifiable->activation_token;
 
         return (new MailMessage)
             ->from('lineagebrasilclub@gmail.com', 'Lineage Brasil Club')
@@ -51,7 +51,7 @@ class SignupActivate extends Notification
             ->greeting('Seja bem-vindo, ' . $this->user->name . '!')
             ->line('Obrigado por se registrar!')
             ->line('Por favor, antes de qualquer coisa precisamos que confirme seu email.')
-            ->action('Confirmar Email', url($url), 'success');
+            ->action('Confirmar Email', $url, 'success');
     }
 
     /**
