@@ -29,7 +29,7 @@ trait LineageRegister
         $user = $this->createWebAccount($request);
         // TODO if $user->id
         $gameAuth = $this->createGameAuth($request);
-        $gameAccount = $this->createGameAccount($request, $user->id, true);
+        $gameAccount = $this->createGameAccount($request, $user->id, 0);
 
         $notify ? $user->notify(new SignupActivate($user)) : null;
 
@@ -41,10 +41,10 @@ trait LineageRegister
         $request->validate([
             'login' => ['required', 'string', 'unique:users', new UniqueAccount(), new MaxAccount($request, 3), 'min:4', 'max:14', 'regex:/^([a-zA-Z0-9]*)$/i'],
             'password' => ['required', 'string', 'min:4', 'max:14', 'confirmed', 'regex:/^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d[:graph:]]*)$/i'],
-        ]);        
+        ]);
 
         $gameAuth = $this->createGameAuth($request);
-        $gameAccount = $this->createGameAccount($request, $request->user()->id, true);
+        $gameAccount = $this->createGameAccount($request, $request->user()->id, 1);
 
         return $gameAccount;
     }
@@ -75,12 +75,12 @@ trait LineageRegister
         }
     }
 
-    protected function createGameAccount(Request $request, int $userId, bool $active)
+    protected function createGameAccount(Request $request, int $userId, int $active)
     {
         $userAccount = new GameAccount([
             'account' => $request->login,
             'user_id' => $userId,
-            'pay_stat' => 1
+            'pay_stat' => $active
         ]);
 
         $userAccount->save();
