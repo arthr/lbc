@@ -28,7 +28,7 @@ trait LineageRegister
 
         $user = $this->createWebAccount($request);
         $gameAuth = $this->createGameAuth($request);
-        $gameAccount = $this->createGameAccount($request, $user->id);
+        $gameAccount = $this->createGameAccount($request, $user->id, true);
 
         $notify ? $user->notify(new SignupActivate($user)) : null;
 
@@ -43,7 +43,7 @@ trait LineageRegister
         ]);
 
         $gameAuth = $this->createGameAuth($request);
-        $gameAccount = $this->createGameAccount($request, $request->user()->id);
+        $gameAccount = $this->createGameAccount($request, $request->user()->id, true);
 
         return $gameAccount;
     }
@@ -74,7 +74,7 @@ trait LineageRegister
         }
     }
 
-    protected function createGameAccount(Request $request, int $userId)
+    protected function createGameAccount(Request $request, int $userId, bool $active)
     {
         $userAccount = new GameAccount([
             'account' => $request->login,

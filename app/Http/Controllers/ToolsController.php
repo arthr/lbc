@@ -16,6 +16,12 @@ class ToolsController extends Controller
     use MigrationTool;
     use LineagePassword;
 
+    public function changePass(Request $request)
+    {
+        $user = User::all();
+        dd($user);
+    }
+
     public function migrateBetaAccounts(Request $request)
     {
         if ($request->exe) {
@@ -33,7 +39,7 @@ class ToolsController extends Controller
         if ($request->login) {
             ini_set('max_execution_time', 3000);
             $users = BetaUser::where('email', 'LIKE', '%' . $request->login . '%')->get();
-            
+
             dd($users);
 
             // foreach ($users as $user) {

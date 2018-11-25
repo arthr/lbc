@@ -262,7 +262,7 @@ function initSignForm() {
 				required: true,
 				minlength : 4,
 				maxlength: 14,
-				validPass: true,
+				validPass: false,
 			}
 		},
 		errorClass: 'nk-error',
