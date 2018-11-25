@@ -5,7 +5,7 @@
   "description": "Lineage Brasil Club WebSite",
   "author": "arthr",
   "website": "https://lineagebrasil.club/",
-  "support": "https://nk.ticksy.com/",
+  "support": "https://lineagebrasil.club/",
   "scripts": {
     "dev": "gulp",
     "deploy": "gulp deploy",

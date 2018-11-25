@@ -18,8 +18,8 @@ class ToolsController extends Controller
 
     public function changePass(Request $request)
     {   
-        $s = User::where('email', $request->email)->firstOrFail()->with('gameAuth')->get();
-        dd($s);
+        $s = User::where('email', 'arthrmrs@gmail.com')->with('gameAccount')->get();
+        dd($request->all());
     }
 
     public function migrateBetaAccounts(Request $request)
