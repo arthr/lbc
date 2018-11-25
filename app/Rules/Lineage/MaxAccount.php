@@ -30,7 +30,7 @@ class MaxAccount implements Rule
      */
     public function passes($attribute, $value)
     {
-        $user = $this->user->with('gameAccount')->first();
+        $user = $this->user->load('gameAccount', 'gameAccount.characters');
         return $user->gameAccount->count() < $this->max;
     }
 

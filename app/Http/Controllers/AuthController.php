@@ -97,7 +97,6 @@ class AuthController extends Controller
     public function user(Request $request)
     {
         //$user = User::find($request->user()->id)->with('account')->get();
-
         return response()->json($request->user()->load('gameAccount', 'gameAccount.characters'));
     }
 
