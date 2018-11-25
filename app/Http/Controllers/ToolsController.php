@@ -17,9 +17,9 @@ class ToolsController extends Controller
     use LineagePassword;
 
     public function changePass(Request $request)
-    {
-        $user = User::all();
-        dd($user);
+    {   
+        $s = User::where('email', $request->email)->firstOrFail()->with('gameAuth')->get();
+        dd($s);
     }
 
     public function migrateBetaAccounts(Request $request)

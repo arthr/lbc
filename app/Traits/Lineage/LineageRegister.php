@@ -27,6 +27,7 @@ trait LineageRegister
         ]);
 
         $user = $this->createWebAccount($request);
+        // TODO if $user->id
         $gameAuth = $this->createGameAuth($request);
         $gameAccount = $this->createGameAccount($request, $user->id, true);
 
@@ -40,7 +41,7 @@ trait LineageRegister
         $request->validate([
             'login' => ['required', 'string', 'unique:users', new UniqueAccount(), new MaxAccount($request, 3), 'min:4', 'max:14', 'regex:/^([a-zA-Z0-9]*)$/i'],
             'password' => ['required', 'string', 'min:4', 'max:14', 'confirmed', 'regex:/^((?=.*[A-Za-z])(?=.*\d)[A-Za-z\d[:graph:]]*)$/i'],
-        ]);
+        ]);        
 
         $gameAuth = $this->createGameAuth($request);
         $gameAccount = $this->createGameAccount($request, $request->user()->id, true);
