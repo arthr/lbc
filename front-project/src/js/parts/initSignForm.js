@@ -329,14 +329,14 @@ function initSignForm() {
 					"X-Requested-With": "XMLHttpRequest"
 				},
 				success(response) {
-					if (response.error) {
-						$responseError.hide();
-						$responseSuccess.html(msg).show();
-					} else {
+					if (!response.error) {
 						$responseError.hide();
 						localStorage.setItem("auth", JSON.stringify(response));
 						loadUserData();
 					}
+
+					$responseError.show();
+					$responseError.html(response.message).show();
 
 				},
 				error(response) {
