@@ -18,7 +18,7 @@ trait LineageMisc
     {
         $this->dns = env('DNS');
         $this->lsport = env('LS_PORT');
-        $this->gsport = ENV('GS_PORT');
+        $this->gsport = env('GS_PORT');
         $this->timeout = 1;
     }
 
@@ -32,12 +32,12 @@ trait LineageMisc
 
     protected function gameServerStatus()
     {
-        return $this->sockStatus($this->dns, $this->gsport, $this->timeout) ? true : false;;
+        return $this->sockStatus($this->dns, $this->gsport, $this->timeout);
     }
 
     protected function loginServerStatus()
     {
-        return $this->sockStatus($this->dns, $this->lsport, $this->timeout) ? true : false;
+        return $this->sockStatus($this->dns, $this->lsport, $this->timeout);
     }
 
     private function sockStatus(string $address, int $port, int $timeout)
