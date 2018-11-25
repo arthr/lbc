@@ -111,8 +111,9 @@ class AuthController extends Controller
         $user = User::where('activation_token', $token)->first();
         if (!$user) {
             return response()->json([
+                'error' => true,
                 'message' => 'Token de ativação inválido.',
-            ], 404);
+            ], 200);
         }
 
         $user->active = true;

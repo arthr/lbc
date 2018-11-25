@@ -43,7 +43,7 @@ class SignupActivate extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url('/api/auth/signup/activate/' . $notifiable->activation_token);
+        $url = url('/email-confirmation.html?token=' . $notifiable->activation_token);
 
         return (new MailMessage)
             ->from('lineagebrasilclub@gmail.com', 'Lineage Brasil Club')
