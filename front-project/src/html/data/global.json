@@ -74,14 +74,14 @@
         "server-info.html": {
             "name": "Server Info"
         },
-        "download.html": {
-            "name": "Baixar",
+        "#": {
+            "name": "Download",
             "sub": {
-                "http://google.com": {
+                "download-system.html": {
                     "name": "System LBC"
                 },
-                "http://facebook.com": {
-                    "name": "Client Interlude"
+                "download-client.html": {
+                    "name": "Cliente Interlude"
                 }
             }
         },
@@ -526,7 +526,7 @@
         "my-account.html": {
             "id": "menu-contas",
             "name": "Contas",
-            "count": 1            
+            "count": 1
         },
         "collaboration.html": {
             "name": "Colabora&ccedil;&atilde;o"
