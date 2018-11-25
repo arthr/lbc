@@ -329,33 +329,20 @@ function initSignForm() {
 					"X-Requested-With": "XMLHttpRequest"
 				},
 				success(response) {
-					$responseError.hide();
-					localStorage.setItem("auth", JSON.stringify(response));
-					loadUserData();
+					if (response.error) {
+						$responseError.hide();
+						$responseSuccess.html(msg).show();
+					} else {
+						$responseError.hide();
+						localStorage.setItem("auth", JSON.stringify(response));
+						loadUserData();
+					}
+
 				},
 				error(response) {
 					let msg = response.responseJSON.message;
 					let errors = response.responseJSON.errors;
-
-					if (errors) {
-						msg = "";
-						if (errors.login) {
-							msg += `<p>${errors.login[0]}</p>`;
-						}
-
-						if (errors.email) {
-							msg += `<p>${errors.email[0]}</p>`;
-						}
-					}
-
-					if (msg && !errors) {
-						$responseError.hide();
-						$responseSuccess.html(msg).show();
-						form.reset();
-					} else {
-						$responseSuccess.hide();
-						$responseError.html(msg).show();
-					}
+					//TODO
 				},
 			});
 		}
