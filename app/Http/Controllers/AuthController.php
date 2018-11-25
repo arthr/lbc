@@ -27,7 +27,7 @@ class AuthController extends Controller
     {
         $this->createAccount($request, true);
         return response()->json([
-            'message' => 'Seu cadastro foi realizado com sucesso! Um email de confirmação foi enviado a você.'
+            'message' => 'Seu cadastro foi realizado com sucesso! Um email de confirmação chegará em breve para você. Confira a caixa de "Lixo Eletrônico"!'
         ], 201);
     }
 

@@ -47,9 +47,7 @@ function getHeaderComment(type = 'css') {
     Version: ${pkg.version}
     Author: ${pkg.author}
     Website: ${pkg.website}
-    Purchase: ${pkg.purchase}
     Support: ${pkg.support}
-    License: ${pkg.license}
     Copyright ${new Date().getFullYear()}.
 -------------------------------------------------------------------*/
     `;

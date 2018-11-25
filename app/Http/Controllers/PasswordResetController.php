@@ -19,35 +19,35 @@ class PasswordResetController extends Controller
      */
     public function create(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-        ]);
+        // $request->validate([
+        //     'email' => 'required|string|email',
+        // ]);
 
-        $user = User::where('email', $request->email)->first();
+        // $user = User::where('email', $request->email)->first();
 
-        if (!$user) {
-            return response()->json([
-                'message' => 'Endereço de email não encontrado.',
-            ], 404);
-        }
+        // if (!$user) {
+        //     return response()->json([
+        //         'message' => 'Endereço de email não encontrado.',
+        //     ], 404);
+        // }
 
-        $passwordReset = PasswordReset::updateOrCreate(
-            [
-                'email' => $user->email
-            ],
-            [
-                'email' => $user->email,
-                'token' => str_random(60)
-            ]
-        );
+        // $passwordReset = PasswordReset::updateOrCreate(
+        //     [
+        //         'email' => $user->email
+        //     ],
+        //     [
+        //         'email' => $user->email,
+        //         'token' => str_random(60)
+        //     ]
+        // );
 
-        if ($user && $passwordReset)
-            $user->notify(
-            new PasswordResetRequest($passwordReset->token)
-        );
-
+        // if ($user && $passwordReset)
+        //     $user->notify(
+        //     new PasswordResetRequest($passwordReset->token)
+        // );
+        sleep(2);
         return response()->json([
-            'message' => 'Um link para recuperar sua senha foi enviado para o sei email.'
+            'message' => 'Um link de recuperação de senha foi enviado para o seu email.'
         ]);
     }
 

@@ -161,12 +161,12 @@ function initSignForm() {
 		$toggleRegister.addClass('active');
 	}
 
-	function loadUserData(){
-		self.loadUser(function(){
+	function loadUserData() {
+		self.loadUser(function () {
 			window.location = "/my-account.html";
-		}, function(){
+		}, function () {
 			alert('Falha ao obter dados da conta!');
-            //location.reload();
+			//location.reload();
 		});
 	}
 
@@ -180,7 +180,7 @@ function initSignForm() {
 		if (isActive && isOpen && isToggle || !isActive && !isOpen && isToggle) {
 			self.toggleSignForm();
 		}
-		if(!isActive) showLoginForm();
+		if (!isActive) showLoginForm();
 	});
 	$(`.${$($signForm).attr('class')}, .nk-contacts-right`).on('click', '.nk-sign-form-lost-toggle', (e) => {
 		e.preventDefault();
@@ -198,7 +198,7 @@ function initSignForm() {
 			self.toggleSignForm();
 		}
 
-		if(!isActive) showRegisterForm();
+		if (!isActive) showRegisterForm();
 	});
 
 	$formRegister.find('#btn-register').on('click', (e) => {
@@ -218,7 +218,7 @@ function initSignForm() {
 			}
 			self.debounceResize();
 		},
-		submitHandler:  function(form) {
+		submitHandler: function (form) {
 			const email = $($formLost).find('#forgot_email').val();
 
 			const data = {
@@ -227,6 +227,8 @@ function initSignForm() {
 
 			const $responseError = $($formLost).find('.nk-form-response-error');
 			const $responseSuccess = $($formLost).find('.nk-form-response-success');
+
+			const $formRecoverBtn = $($formLost).find('#btn-recover-pass');
 
 			$responseError.hide();
 			$responseSuccess.hide();
@@ -242,15 +244,40 @@ function initSignForm() {
 					"Content-Type": "application/json",
 					"X-Requested-With": "XMLHttpRequest"
 				},
+				beforeSend(jqXHR, obj) {
+					$formRecoverBtn.prop('disabled', true).find('span > span > span').html('Aguarde...');
+				},
 				success(response) {
+					let msg = response.message;
+
 					$responseError.hide();
-					$responseSuccess.html("Foi enviado um link para seu email com os procedimentos de senha.").show();
-					//TODO
+					$responseSuccess.html(msg).show();
+
+					$formRecoverBtn.prop('disabled', false).find('span > span > span').html('Recuperar Senha');
 				},
 				error(response) {
 					let msg = response.responseJSON.message;
-					$responseSuccess.hide();
-					$responseError.html(msg).show();
+					let errors = response.responseJSON.errors;
+
+					if (errors) {
+						msg = "";
+						if (errors.login) {
+							msg += `<p>${errors.login[0]}</p>`;
+						}
+
+						if (errors.email) {
+							msg += `<p>${errors.email[0]}</p>`;
+						}
+					}
+
+					if (msg && !errors) {
+						$responseError.hide();
+						$responseSuccess.html(msg).show();
+						form.reset();
+					} else {
+						$responseSuccess.hide();
+						$responseError.html(msg).show();
+					}
 				},
 			});
 		}
@@ -260,7 +287,7 @@ function initSignForm() {
 		rules: {
 			"login_password": {
 				required: true,
-				minlength : 4,
+				minlength: 4,
 				maxlength: 14,
 				validPass: false,
 			}
@@ -276,7 +303,7 @@ function initSignForm() {
 			}
 			self.debounceResize();
 		},
-		submitHandler:  function(form) {
+		submitHandler: function (form) {
 			const email = $($formLogin).find('#login_email').val();
 			const password = $($formLogin).find('#login_password').val();
 			const remember = $($formLogin).find('#login_remember').prop('checked');
@@ -308,7 +335,26 @@ function initSignForm() {
 				error(response) {
 					let msg = response.responseJSON.message;
 					let errors = response.responseJSON.errors;
-					$responseError.html(msg).show();
+
+					if (errors) {
+						msg = "";
+						if (errors.login) {
+							msg += `<p>${errors.login[0]}</p>`;
+						}
+
+						if (errors.email) {
+							msg += `<p>${errors.email[0]}</p>`;
+						}
+					}
+
+					if (msg && !errors) {
+						$responseError.hide();
+						$responseSuccess.html(msg).show();
+						form.reset();
+					} else {
+						$responseSuccess.hide();
+						$responseError.html(msg).show();
+					}
 				},
 			});
 		}
@@ -318,7 +364,7 @@ function initSignForm() {
 		rules: {
 			"password": {
 				required: true,
-				minlength : 4,
+				minlength: 4,
 				maxlength: 14,
 				validPass: true,
 			},
@@ -343,7 +389,7 @@ function initSignForm() {
 			}
 			self.debounceResize();
 		},
-		submitHandler:  function(form) {
+		submitHandler: function (form) {
 			const fullName = $($formRegister).find('#name').val();
 			const username = $($formRegister).find('#username').val();
 			const password = $($formRegister).find('#password').val();
@@ -360,6 +406,8 @@ function initSignForm() {
 
 			const $responseSuccess = $($formRegister).find('.nk-form-response-success');
 			const $responseError = $($formRegister).find('.nk-form-response-error');
+			const $formRegisterBtn = $($formRegister).find('#btn-register');
+			const $formRegisterInputs = $($formRegister).find('input[type=text], input[type=password]');
 
 			$.ajax({
 				url: `${self.options.serverURL}/api/auth/signup`,
@@ -372,12 +420,18 @@ function initSignForm() {
 					"Content-Type": "application/json",
 					"X-Requested-With": "XMLHttpRequest"
 				},
+				beforeSend(jqXHR, obj) {
+					$formRegisterBtn.prop('disabled', true).find('span > span > span').html('Aguarde...');
+					$formRegisterInputs.prop('disabled', true);
+				},
 				success(response) {
 					let msg = response.message;
 
 					$responseError.hide();
 					$responseSuccess.html(msg).show();
 					self.debounceResize();
+					$formRegisterBtn.prop('disabled', false).find('span > span > span').html('Cadastrar');
+					$formRegisterInputs.prop('disabled', false).val('');
 				},
 				error(response) {
 					let msg = response.responseJSON.message;
@@ -385,11 +439,11 @@ function initSignForm() {
 
 					if (errors) {
 						msg = "";
-						if(errors.login){
+						if (errors.login) {
 							msg += `<p>${errors.login[0]}</p>`;
 						}
 
-						if(errors.email){
+						if (errors.email) {
 							msg += `<p>${errors.email[0]}</p>`;
 						}
 					}

@@ -85,27 +85,7 @@
                 }
             }
         },
-        "#": {
-            "name": "Ranking",
-            "sub": {
-                "ranking-pvp.html": {
-                    "name": "PVP"
-                },
-                "ranking-pk.html": {
-                    "name": "PVP"
-                },
-                "ranking-level.html": {
-                    "name": "Level"
-                },
-                "ranking-olympics.html": {
-                    "name": "Olimp&iacute;adas"
-                },
-                "ranking-castle.html": {
-                    "name": "Castelos"
-                }
-            }
-        },
-        "http://uol.com.br": {
+        "http://lineagebrasil.club/forum/index.php": {
             "name": "F&oacute;rum"
         }
     },
