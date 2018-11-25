@@ -52,6 +52,7 @@ import { initPluginSummernote } from './parts/initPluginSummernote';
 
 /* LBC */
 import { initLBCPasswordRecover } from './parts/initLBCPasswordRecover';
+import { initLBCEmailConfirmation } from './parts/initLBCEmailConfirmation';
 import { initLBCMyAccount } from './parts/initLBCMyAccount';
 import { initLBCMyAccountConfigs } from './parts/initLBCMyAccountConfigs';
 
@@ -127,6 +128,7 @@ class GODLIKE {
         self.initLBCPasswordRecover();
         self.initLBCMyAccount();
         self.initLBCMyAccountConfigs();
+        self.initLBCEmailConfirmation();
 
         //Ativa os validadores de form;
         self.initForms();
@@ -399,6 +401,9 @@ class GODLIKE {
     }
     postInitLBCNavbar($context) {
         return postInitLBCNavbar.call(this, $context);
+    }
+    initLBCEmailConfirmation($context) {
+        return initLBCEmailConfirmation.call(this, $context);
     }
 }
 
