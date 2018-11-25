@@ -78,7 +78,8 @@ trait LineageRegister
     {
         $userAccount = new GameAccount([
             'account' => $request->login,
-            'user_id' => $userId
+            'user_id' => $userId,
+            'pay_stat' => 1
         ]);
 
         $userAccount->save();
