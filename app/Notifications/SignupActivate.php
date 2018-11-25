@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\Models\Web\User;
+use Illuminate\Support\Facades\Config;
 
 class SignupActivate extends Notification
 {
