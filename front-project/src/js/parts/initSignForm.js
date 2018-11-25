@@ -315,6 +315,7 @@ function initSignForm() {
 			}
 
 			const $responseError = $($formLogin).find('.nk-form-response-error');
+			const $responseSuccess = $($formLogin).find('.nk-form-response-success');
 
 			$.ajax({
 				url: `${self.options.serverURL}/api/auth/login`,
